@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from './navbar'
 import Card from './card'
+import List from './list'
 
 var divStyle = {
   color: 'black',
@@ -34,10 +35,36 @@ class App extends Component {
             },
             {
               id: '2',
-              title: ' ',
+              title: 'Set up workspaces',
               label: 'Urgent',
               assignTo: ['Lisa','Peter'],
               dueDate: '29/09/16'
+            }
+          ]
+        },
+        {
+          title: 'Awaiting Approval',
+          cards: [
+            {
+              id: '1',
+              title: 'Testing Sign off',
+              label: 'Negotiable',
+              assignTo: ['Andy', 'Anne'],
+              dueDate: '25/10/16'
+            },
+            {
+              id: '2',
+              title: 'Write Specs',
+              label: 'Urgent',
+              assignTo: ['Francine', 'Billy-Bob'],
+              dueDate: '25/10/16'
+            },
+            {
+              id: '3',
+              title: 'Spec Review Meeting',
+              label: 'Negotiable',
+              assignTo: ['Francine', 'Billy-Bob', 'Tanya'],
+              dueDate: 'TBA'
             }
           ]
         }
@@ -45,11 +72,20 @@ class App extends Component {
     }
   }
 
+  renderList () {
+    return this.state.lists.map((list) => {
+      console.log('list', list)
+      return <List cards={list.cards} title={list.title}/>
+    })
+  }
+
   render () {
     return (
       <div style={divStyle}>
         <Navbar userImage={this.state.user.userImage} name={this.state.user.name} logo={this.state.logo}/>
-
+        <div>
+          {this.renderList()}
+        </div>
       </div>
     )
   }

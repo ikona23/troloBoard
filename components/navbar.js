@@ -2,7 +2,6 @@ import React from 'react'
 
 class Navbar extends React.Component {
   render(){
-    console.log('props from Navbar', this.props);
     return (
       <div>
         <img src={this.props.logo} />
