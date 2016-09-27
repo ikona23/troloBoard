@@ -11,6 +11,18 @@ var divStyle = {
   border:'1px solid black'
 };
 
+var navBar = {
+  color: 'blue',
+  height: '150px',
+  border:'1px solid black'
+}
+
+var img = {
+  height: '10px',
+  width: '50px',
+  background:'red'
+}
+
 
 class App extends Component {
 
@@ -75,18 +87,19 @@ class App extends Component {
   renderList () {
     return this.state.lists.map((list) => {
       console.log('list', list)
-      return <List cards={list.cards} title={list.title}/>
+      return <div><List cards={list.cards} title={list.title}/></div>
     })
   }
 
   render () {
     return (
       <div style={divStyle}>
-        <Navbar userImage={this.state.user.userImage} name={this.state.user.name} logo={this.state.logo}/>
-        <div>
-          {this.renderList()}
+        <div style={navBar}>
+          <Navbar userImage={this.state.user.userImage} name={this.state.user.name} logo={this.state.logo}/>
         </div>
+          {this.renderList()}
       </div>
+
     )
   }
 
