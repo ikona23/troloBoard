@@ -5,7 +5,9 @@ class Navbar extends React.Component {
     console.log('props from Navbar', this.props);
     return (
       <div>
-        Hi I am the Navbar
+        <img src={this.props.logo} />
+        <img src={this.props.userImage} />
+        <h4>Name: {this.props.name}</h4>
       </div>
     )
   }
